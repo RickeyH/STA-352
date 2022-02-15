@@ -1,0 +1,26 @@
+---
+title: "HW1Q7"
+author: "Rickey Huang"
+date: "2/15/2022"
+output: pdf_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+```{r}
+# Install the package if it is not installed
+#install.packages("igraph")
+library(igraph)
+# Create the network
+graph <- graph.formula(A-B,A-C,B-C,B-D,C-E,D-E)
+# Test and plot
+plot(graph)
+# Compute the node betweenness
+betweenness(graph)
+# Compute the edge betweenness
+E(graph)
+edge.betweenness(graph)
+```
+
