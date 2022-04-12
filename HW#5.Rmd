@@ -9,3 +9,59 @@ output: pdf_document
 knitr::opts_chunk$set(echo = TRUE)
 ```
 
+```{r}
+library(igraph)
+```
+
+\section{Question 1}
+
+```{r}
+g1 <- graph.formula(1-3,1-4,1-5,1-6,2-4,2-5,2-6,3-5,4-6)
+igraph.options(vertex.color="dodgerblue",vertex.size=25,
+               vertex.label.cex=1.25,vertex.label.color="white",
+               edge.color="red",edge.arrow.size=1,edge.width=2)
+tkplot(g1)
+```
+
+```{r}
+# Find the number of edges and the number of vertices
+vcount(g1)
+ecount(g1)
+```
+
+```{r}
+# Find the degrees
+degree(g1)
+# Find the degree distribution for the network g1
+degree.distribution(g1)
+```
+
+```{r}
+# Find the average nearest neighbour degree for vertices 2, 3, and 4
+knn(g1)$knn
+```
+
+```{r}
+# Find the diameter of the network
+diameter(g1)
+```
+
+```{r}
+# Find which pairs of nodes has largest shortest path distance between them
+shortest.paths(g1)
+```
+
+
+```{r}
+newg1 <- graph.formula(1-3,1-5,1-6,2-4,2-5,2-6,3-5,4-6)
+igraph.options(vertex.color="dodgerblue",vertex.size=25,
+               vertex.label.cex=1.25,vertex.label.color="white",
+               edge.color="red",edge.arrow.size=1,edge.width=2)
+diameter(newg1)
+```
+
+```{r}
+# Find the closeness centralities of the nodes
+closeness(g1)
+```
+
